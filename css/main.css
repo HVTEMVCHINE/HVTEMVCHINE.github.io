@@ -365,6 +365,11 @@ textarea {
     padding: 0.2em 0;
 }
 
+html {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
                     /* START CSS */
 
 /* roboto-regular - latin */
@@ -405,11 +410,14 @@ img {
 .header{
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.15);
     background-color: #ffffff;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
 }
 
 .header__wrapper{
-    width: 100%;
-    height: 90px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -439,7 +447,7 @@ img {
     text-transform: uppercase;
 }
 
-.header__link:hover, .header__link:focus{
+.header__link:hover, .header__link:focus, .header__link:active{
     color: black;
 }
 
@@ -450,5 +458,60 @@ img {
 .header__item:last-child{
     margin-right: 0;
 }
+
+/*header styles end*/
+
+
+/*intro styles start*/
+
+.intro{
+    background: url("../img/back-coffee.jpg") no-repeat center;
+    min-height: 100vh;
+    background-size: cover;
+    margin-bottom: 33px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.intro__caption{
+    padding-top: 353px;
+}
+
+.intro__title {
+    width: 700px;
+    height: 56px;
+    background: black;
+    display: flex;
+    align-items: center;
+}
+
+.intro__title-main {
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4.8px;
+    width: 700px;
+    text-align: center;
+}
+
+.intro__subtitle{
+    color: #000000;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 24px;
+    text-transform: uppercase;
+    letter-spacing: 7.2px;
+    text-align: center;
+    padding-top: 38px;
+}
+
+
+
+
+
+
 
 
