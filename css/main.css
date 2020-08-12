@@ -19,8 +19,6 @@ time, mark, audio, video {
   margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
 
@@ -392,6 +390,8 @@ body{
     font-weight: normal;
     line-height: 24px;
     color: #777777;
+    background: #fafafa;
+    width: 100%;
 }
 
 img {
@@ -403,7 +403,9 @@ img {
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 230px;
+    width: 980px;
 }
+
 
 /*header styles start*/
 
@@ -437,6 +439,7 @@ img {
 }
 
 .header__link{
+    font-family: "Roboto - Bold";
     text-decoration: none;
     width: 531px;
     height: 15px;
@@ -468,10 +471,13 @@ img {
     background: url("../img/back-coffee.jpg") no-repeat center;
     min-height: 100vh;
     background-size: cover;
-    margin-bottom: 33px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 33px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
 }
 
 .intro__caption{
@@ -507,6 +513,177 @@ img {
     text-align: center;
     padding-top: 38px;
 }
+
+/*intro styles end*/
+
+/*things styles start*/
+
+.things{
+    padding-bottom: 73px;
+}
+
+.things__nav-pic{
+    width: 100%;
+    height: 1px;
+    object-fit: cover;
+    margin-bottom: 0;
+}
+
+.things__nav{
+    display: flex;
+    justify-content: center;
+}
+
+.things__list{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.things__link-nav{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1.05px;
+    color: #777777;
+}
+
+.things__link-nav:hover, .things__link-nav:focus, .things__link-nav:active{
+    color: black;
+}
+
+.things__nav-pic-string{
+    padding: 2px 20px;
+}
+
+.things__branding{
+    padding-top: 5px;
+}
+
+.things__cards{
+    columns: 3;
+    column-gap: 30px;
+    margin-bottom: 6px;
+    margin-top: 10px;
+}
+
+.things__card-link{
+    text-decoration: none;
+}
+
+.things__card-pic{
+    width: 100%;
+}
+
+.things__card{
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.things__card-link{
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+
+.things__card-link:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
+    opacity: 0;
+}
+
+.things__card-link:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+.things__card-link:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../img/icons/plus.svg) no-repeat center;
+    opacity: 0;
+}
+
+.things__card-link:hover:before,
+.things__card-link:hover:after {
+    opacity: 1;
+}
+
+.things__btn{
+    display: flex;
+    justify-content: center;
+}
+
+.things__button{
+    width: 125px;
+    height: 30px;
+    background-color: #959595;
+    border: 0;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.76px;
+    border-radius: 2px;
+}
+/*things styles end*/
+
+/*footer styles start*/
+
+.footer{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 300px;
+    background: white;
+    box-shadow: 0 -3px 5px 1px rgba(163, 163, 163, 0.1);
+}
+
+.footer__items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.footer__logo{
+    padding-top: 64px;
+}
+
+.footer__line{
+    padding-top: 44px;
+    object-fit: cover;
+}
+
+.footer__line-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
 
 
 
