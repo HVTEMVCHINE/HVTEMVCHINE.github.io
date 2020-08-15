@@ -6,4 +6,6 @@
 .idea/misc.xml
 .idea/modules.xml
 .maket/
-
+maket/
+libs/
+!/maket/
