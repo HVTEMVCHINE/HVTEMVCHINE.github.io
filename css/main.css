@@ -1514,13 +1514,17 @@ img {
     background-color: #000000;
     border: 0;
     border-radius: 3px;
-
     color: #ffffff;
     font-size: 14px;
     font-weight: 700;
     line-height: 21.33px;
     text-transform: uppercase;
     letter-spacing: 0.79px;
+}
+
+.office__input-button:active{
+    opacity: 0.86;
+    transform: scale(0.97);
 }
 
 .map{
@@ -1554,7 +1558,6 @@ img {
     margin-right: 40px;
     display: block;
     text-align: center;
-
     color: #777777;
     font-size: 14px;
     font-weight: 300;
