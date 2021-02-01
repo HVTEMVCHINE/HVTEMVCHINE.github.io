@@ -1,19 +1,4 @@
-
-
-
-/*JQUERY POPUP*/
-/*
-$('.open-popup').click(function () {
-    $('.popup-bg').fadeIn(300)
-    $('html').addClass('no-scroll')
-})
-
-$('.close-popup').click(function () {
-    $('.popup-bg').fadeOut(300)
-    $('html').removeClass('no-scroll')
-})
-*/
-
+'use strict'
 
 
 const popupLinks = document.querySelectorAll('.popup-link')
@@ -81,7 +66,7 @@ function popupClose(popupActive, doUnlock = true) {
 
 
 
-function bodyLock() { // Блокировка скролла
+function bodyLock() {
     const lockPaddingValue =  (window.innerWidth - document.querySelector('header').offsetWidth)  + 'px'
 
 
@@ -90,7 +75,7 @@ function bodyLock() { // Блокировка скролла
         el.style.paddingRight = lockPaddingValue
     }
     body.style.paddingRight = lockPaddingValue
-    body.style.overflow = 'hidden'
+    body.style.overflowX = 'hidden'
 
 
     unlock = false
@@ -99,7 +84,7 @@ function bodyLock() { // Блокировка скролла
     }, timeout)
 }
 
-// Разблокировка скролла
+
 function bodyUnLock() {
     setTimeout(function () {
         if (lockPadding.length > 0){
@@ -127,6 +112,7 @@ document.addEventListener('keydown', function (e) {
         popupClose(popupActive)
     }
 })
+
 
 
 

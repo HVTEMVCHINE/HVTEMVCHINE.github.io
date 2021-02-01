@@ -411,6 +411,7 @@ img {
     z-index: 5;
     top: 0;
     left: 0;
+    margin-right: calc(-1 * (100vw - 100%));
 }
 
 .header__wrapper {
@@ -1619,81 +1620,7 @@ img {
 /*contact style end*/
 
 
-.popup{
-    position: fixed;
-    z-index: 999;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(0,0,0,0.8);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.8s ease 0s;
-    overflow-y: auto;
-}
 
-.popup.open {
-    visibility: visible;
-    opacity: 1;
-}
-
-.popup.open .popup__content {
-    opacity: 1;
-    transform: translate(0px, 0px);
-}
-
-.popup__body{
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.8s ease 0s;
-}
-
-.popup__content{
-    position: relative;
-    width: 600px;
-    background: white;
-    padding: 20px;
-    text-align: center;
-    opacity: 0;
-    transform: translate(0px, -100%);
-}
-
-.close-popup{
-    padding-left: 98%;
-    text-decoration: none;
-    color: grey;
-}
-
-.popup form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup form input{
-    width: 60%;
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-right-width: 1px;
-    border-right-style: solid;
-    border-left-width: 1px;
-    border-left-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    font-size: 20px;
-    margin-bottom: 30px;
-    height: 40px;
-}
-
-.popup form input[type="submit"] {
-    background: black;
-    color: white;
-    border: 0;
-}
 
 
 
