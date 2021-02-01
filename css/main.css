@@ -140,7 +140,7 @@ a:hover {
  */
 
 img {
-    border: 0; /* 1 */
+    border: none; /* 1 */
     -ms-interpolation-mode: bicubic; /* 2 */
 }
 
@@ -571,8 +571,9 @@ img {
     margin-top: 10px;
 }
 
-.things__card-link {
-    text-decoration: none;
+a img {
+    border: none;
+    outline: none;
 }
 
 .things__card-pic {
@@ -587,7 +588,8 @@ img {
 .things__card-link {
     display: block;
     position: relative;
-    text-decoration: none;
+    border: none;
+    outline: none;
 }
 
 .things__card-link:after {
@@ -628,6 +630,7 @@ img {
 .things__card-link:hover:before,
 .things__card-link:hover:after {
     opacity: 1;
+
 }
 
 .things__btn {
@@ -1618,10 +1621,6 @@ img {
 }
 
 /*contact style end*/
-
-
-
-
 
 
 

@@ -1,3 +1,5 @@
+
+// функция создания модального окна
 function _createModal (options){
     const DEFAULT_WIDTH = 600
     const modal = document.createElement('div')
@@ -23,7 +25,7 @@ function _createModal (options){
     return modal
 }
 
-
+// методы функции модального окна
 $.modal = function (options) {
     const ANIMATION_SPEED = 200
     const $modal = _createModal(options)
@@ -36,7 +38,7 @@ $.modal = function (options) {
                 console.log('Modal is destroyed')
             }
             !closing && $modal.classList.add('open')
-            document.body.style.overflow = 'hidden'
+
         },
         close() {
             closing = true
@@ -61,11 +63,10 @@ $.modal = function (options) {
     const listener = event => {
         if (event.target.dataset.close){
             modal.close()
+            bodyUnLock()
         }
     }
     $modal.addEventListener('click', listener)
-
-
     $modal.addEventListener('click', event =>{
         if (event.target.dataset.destroyclose){
             modal.destroy()
@@ -73,10 +74,13 @@ $.modal = function (options) {
     })
     return modal
 }
+
+
 const modalLink = document.querySelectorAll('.popup-link')
 for (let modalOpen of modalLink){
         modalOpen.addEventListener('click', event => {
             modal.open()
+            bodyLock()
             event.preventDefault()
         })
     }
