@@ -1,4 +1,4 @@
-
+// объект с параметрами
 const modal = $.modal({
     title: 'Maxim Smirnov',
     closable: true,

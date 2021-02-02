@@ -1,5 +1,5 @@
 
-// функция создания модального окна
+// ИНСТАНС модального окна / реализация
 function _createModal (options){
     const DEFAULT_WIDTH = 600
     const modal = document.createElement('div')
@@ -8,31 +8,32 @@ function _createModal (options){
     <div class="popup-overlay" data-close="true">
         <div class="popup-window" style="${options.width || DEFAULT_WIDTH}">
             <div class="popup-header">
-                <span class="popup-title" data-title>${options.title || 'OKHO'}</span>
+                <span class="popup-title" data-title>DEFAULT TITLE</span>
                 ${options.closable ? `<i class="fas fa-times popup-close" id="popup-close" data-close="true"></i>` : ''}
             </div>
             <div class="popup-content">
                 <p>${options.content || ''}</p>
             </div>
             <div class="popup-footer">
-                <button data-close="true">OK</button>
+                <button data-okey="true">OK</button>
                 <button data-destroyclose="true">Cancel</button>
             </div>
         </div>
     </div>
 </div>`)
     document.body.appendChild(modal)
+
     return modal
 }
 
-// методы функции модального окна
-$.modal = function (options) {
+// САМ ПЛАГИН является функцией с опциями настройки модального окна
+$.modal = function(options) {
     const ANIMATION_SPEED = 200
     const $modal = _createModal(options)
     let closing = false
     let destroyed = false
 
-    const modal = {
+    const methods = {
         open() {
             if (destroyed){
                 console.log('Modal is destroyed')
@@ -57,41 +58,37 @@ $.modal = function (options) {
             document.body.style.overflow = 'auto'
         }
     }
-
-
-    // Закрытие по клику
     const listener = event => {
         if (event.target.dataset.close){
             modal.close()
-            bodyUnLock()
         }
     }
     $modal.addEventListener('click', listener)
+
     $modal.addEventListener('click', event =>{
-        if (event.target.dataset.destroyclose){
+        if (event.target.dataset.okey){
+            modal.close()
+            setTimeout( () => {
+                modal.open()
+            }, 2000)
+        } else if (event.target.dataset.destroyclose){
             modal.destroy()
         }
-    })
-    return modal
-}
-
-
-const modalLink = document.querySelectorAll('.popup-link')
-for (let modalOpen of modalLink){
+    } )
+    const modalLink = document.querySelectorAll('.popup-link')
+    for (let modalOpen of modalLink){
         modalOpen.addEventListener('click', event => {
             modal.open()
-            bodyLock()
             event.preventDefault()
         })
     }
-
-
-document.addEventListener('keydown', event => {
-    if (event.keyCode === 27){
-        modal.close()
-    }
-})
-
+    document.addEventListener('keydown', event => {
+        if (event.keyCode === 27){
+            modal.close()
+        }
+    })
+        return methods
+}
 
 
 
