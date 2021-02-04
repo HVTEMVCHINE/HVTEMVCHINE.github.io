@@ -1,5 +1,31 @@
+// костыль для добавления нода после определенного дива
+Element.prototype.appendAfter = function (element) {
+    element.parentNode.insertBefore(this, element.nextSibling)
+}
 
-// ИНСТАНС модального окна / реализация
+// инстанс - реализация создания футера
+function _createFooterModal(buttons = []) {
+    if (buttons.length === 0){
+        return document.createElement('div').classList.add('empty')
+    } else {
+        const wrap = document.createElement('div')
+        wrap.classList.add('popup-footer')
+
+        buttons.forEach(key => {
+            const $btn = document.createElement('button')
+            $btn.textContent = key.text
+            $btn.classList.add('btn')
+            $btn.classList.add(`btn-${key.type || 'secondary'}`)
+            $btn.onclick = key.handler || console.log('empty key')
+
+            wrap.appendChild($btn)
+        })
+
+        return wrap
+    }
+}
+
+// Инстанс модального окна / реализация
 function _createModal (options){
     const DEFAULT_WIDTH = 600
     const modal = document.createElement('div')
@@ -11,22 +37,22 @@ function _createModal (options){
                 <span class="popup-title" data-title>DEFAULT TITLE</span>
                 ${options.closable ? `<i class="fas fa-times popup-close" id="popup-close" data-close="true"></i>` : ''}
             </div>
-            <div class="popup-content">
+            <div class="popup-content" data-content="true">
                 <p>${options.content || ''}</p>
-            </div>
-            <div class="popup-footer">
-                <button data-okey="true">OK</button>
-                <button data-destroyclose="true">Cancel</button>
             </div>
         </div>
     </div>
 </div>`)
-    document.body.appendChild(modal)
 
+    const $footer = _createFooterModal(options.footerButtons)
+    $footer.appendAfter(modal.querySelector('[data-content]'))
+
+
+    document.body.appendChild(modal)
     return modal
 }
 
-// САМ ПЛАГИН является функцией с опциями настройки модального окна
+// Сам глобальный плагин является функцией с опциями настройки инстанса
 $.modal = function(options) {
     const ANIMATION_SPEED = 200
     const $modal = _createModal(options)
@@ -36,7 +62,7 @@ $.modal = function(options) {
     const methods = {
         open() {
             if (destroyed){
-                console.log('Modal is destroyed')
+                console.log('Modal is destroyed');
             }
             !closing && $modal.classList.add('open')
 
@@ -50,12 +76,6 @@ $.modal = function(options) {
                 $modal.classList.remove('hide')
                 document.body.style.overflow = 'auto'
             }, ANIMATION_SPEED)
-        },
-        destroy() {
-            $modal.parentNode.removeChild($modal)
-            destroyed = true
-            $modal.removeEventListener('click', listener)
-            document.body.style.overflow = 'auto'
         }
     }
     const listener = event => {
@@ -67,28 +87,35 @@ $.modal = function(options) {
 
     $modal.addEventListener('click', event =>{
         if (event.target.dataset.okey){
-            modal.close()
-            setTimeout( () => {
-                modal.open()
-            }, 2000)
+                modal.close()
         } else if (event.target.dataset.destroyclose){
             modal.destroy()
         }
-    } )
-    const modalLink = document.querySelectorAll('.popup-link')
+    })
+
+
+
+    const modalLink = $cards.querySelectorAll('[data-popup-link]')
     for (let modalOpen of modalLink){
         modalOpen.addEventListener('click', event => {
             modal.open()
-            event.preventDefault()
         })
     }
     document.addEventListener('keydown', event => {
-        if (event.keyCode === 27){
+        if (event.keyCode === 13){
             modal.close()
         }
     })
-        return methods
+
+        return Object.assign(methods, {
+            destroy() {
+                $modal.parentNode.removeChild($modal)
+                destroyed = true
+                $modal.removeEventListener('click', listener)
+            },
+
+            setContent(html) {
+                $modal.querySelector('[data-content]').innerHTML = html
+            }
+        })
 }
-
-
-

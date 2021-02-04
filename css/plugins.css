@@ -85,10 +85,10 @@
 }
 
 .popup-footer button{
-    margin: 0 4px;
+    margin: 0 9px;
     border-radius: 3px;
     border: 0;
-    padding: 4px 9px;
+    padding: 2px 12px;
 }
 
 .popup-footer button:last-child{
@@ -98,4 +98,21 @@
 .popup-footer button:hover{
     background: black;
     color: white;
+}
+
+.card-delete{
+    padding-top: 6px;
+    padding-right: 15px;
+    color: #e5e5e5;
+    cursor: help;
+    z-index: 4;
+    font-size: 25px;
+    position: absolute;
+    opacity: 65%;
+}
+
+
+.anim-show{
+    opacity: 1;
+    transition: all .3s ease-out;
 }

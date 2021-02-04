@@ -129,9 +129,18 @@ a:focus {
  * Improve readability when focused and also mouse hovered in all browsers.
  */
 
+a{
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+
 a:active,
-a:hover {
-    outline: 0;
+a:hover,
+a:focus{
+    border: none;
+    outline:none !important;
+
 }
 
 /**
@@ -142,6 +151,11 @@ a:hover {
 img {
     border: none; /* 1 */
     -ms-interpolation-mode: bicubic; /* 2 */
+    pointer-events: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /**
@@ -412,6 +426,7 @@ img {
     top: 0;
     left: 0;
     margin-right: calc(-1 * (100vw - 100%));
+    opacity: 97%;
 }
 
 .header__wrapper {
@@ -474,7 +489,7 @@ img {
     margin-bottom: 33px;
     width: 100%;
     margin-top: 90px;
-    height: 100vh;
+    min-height: 100vh;
     box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.15);
 }
 
@@ -520,7 +535,7 @@ img {
 /*things styles start*/
 
 .things {
-    padding-bottom: 73px;
+    padding-bottom: 0;
 }
 
 .things__nav-pic {
@@ -567,13 +582,16 @@ img {
 .things__cards {
     columns: 3;
     column-gap: 30px;
-    margin-bottom: 6px;
+    margin-bottom: 0;
     margin-top: 10px;
+    opacity: 0.4;
+    transition: transform .4s, opacity 1s ease-out;
+    transform: translateY(400px);
 }
 
-a img {
-    border: none;
-    outline: none;
+.things__cards.fade{
+    opacity: 1;
+    transform: translateY(0px);
 }
 
 .things__card-pic {
@@ -586,7 +604,8 @@ a img {
 }
 
 .things__card-link {
-    display: block;
+    display: flex;
+    justify-content: flex-end;
     position: relative;
     border: none;
     outline: none;
@@ -614,47 +633,16 @@ a img {
     opacity: 0;
     z-index: 1;
     transition: .9s;
+    background: url(../img/icons/plus.svg) no-repeat center;
 }
 
-.things__card-link:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url(../img/icons/plus.svg) no-repeat center;
-    opacity: 0;
-}
 
 .things__card-link:hover:before,
 .things__card-link:hover:after {
     opacity: 1;
-
+    cursor: pointer;
 }
 
-.things__btn {
-    display: flex;
-    justify-content: center;
-}
-
-.things__button {
-    width: 125px;
-    height: 30px;
-    background-color: #959595;
-    border: 0;
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.76px;
-    border-radius: 2px;
-}
-
-.things__button:hover, .things__button:active {
-    background: black;
-    transition: .5s ease-in-out;
-}
 
 /*things styles end*/
 
@@ -679,7 +667,15 @@ a img {
 .footer__logo {
     padding-top: 64px;
     margin-bottom: 44px;
+    opacity: 0;
+    transition: all .6s ease-out;
 }
+
+.footer__logo.active {
+    opacity: 1;
+}
+
+
 
 .footer__social {
     height: 63px;
