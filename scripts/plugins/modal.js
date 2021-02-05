@@ -63,8 +63,10 @@ $.modal = function(options) {
         open() {
             if (destroyed){
                 console.log('Modal is destroyed');
+            } else {
+                !closing && $modal.classList.add('open')
             }
-            !closing && $modal.classList.add('open')
+
 
         },
         close() {
