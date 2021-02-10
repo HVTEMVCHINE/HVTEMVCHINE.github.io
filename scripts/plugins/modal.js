@@ -49,8 +49,6 @@ function _createFooterModal(buttons = []) {
 
             popupFooter.appendChild($btn)
         })
-
-
         return popupFooter
     }
 }
@@ -64,22 +62,35 @@ $.modal = function(options) {
     let closing = false
     let destroyed = false
 
+    const body = document.querySelector('html')
+    let lockPaddingValue = (window.innerWidth - document.querySelector('header').offsetWidth + 'px')
+    const lockPadding = document.querySelector('.header')
+
+
+
     const modal = {
         open() {
             if (destroyed){
                 console.log('Modal is destroyed');
             } else {
                 !closing && $modal.classList.add('open')
+                body.style.overflow = 'hidden'
+                body.style.paddingRight = lockPaddingValue
+                lockPadding.style.paddingRight = lockPaddingValue
             }
 
         },
         close() {
+
             closing = true
             $modal.classList.remove('open')
             $modal.classList.add('hide')
             setTimeout(() => {
                 closing = false
                 $modal.classList.remove('hide')
+                body.style.overflow = 'auto'
+                body.style.paddingRight = '0px'
+                lockPadding.style.paddingRight = '0px'
                 if (typeof options.onClose === 'function'){
                     options.onClose()
                 }
@@ -94,11 +105,7 @@ $.modal = function(options) {
     }
     $modal.addEventListener('click', listener)
 
-    $modal.addEventListener('click', event => {
-        if (event.target.dataset.okey){
-                modal.close()
-        }
-    })
+
 
         return Object.assign(modal, {
             destroy() {
@@ -116,5 +123,4 @@ $.modal = function(options) {
             }
         })
 }
-
 

@@ -627,7 +627,7 @@ const toHTML = card => `
                     <div class="things__card-link" data-btn="price" data-id="${card.id}"><i class="fas fa-times card-delete" data-btn="delete" data-id="${card.id}"></i><img src="${card.img}" alt="${card.alt}" class="things__card-pic"></div>
                 </div>`
 const toHeaderHTML = nav => `<li class="header__item">
-                        <a href="#" class="header__link" data-btn="header" data-id="${nav.id}">${nav.name}</a></li>`
+                        <a href="" class="header__link" data-el="true" data-btn="header" data-id="${nav.id}">${nav.name}</a></li>`
 const toNavHTML = nav => `
  <li class="thing__item">
                         <a href="#" class="things__link-nav" data-btn="btnNav" data-id="${nav.id}">${nav.name}</a>${nav.img}</li>`
@@ -654,18 +654,21 @@ function unRender() {
     const thingCards = document.querySelector('.things__cards')
     thingCards.innerHTML = ''
     thingCards.classList.remove('fade')
-
 }
 
-
-
-
+function scrollToAnchor() {
+    const anchor = document.querySelector('#scroll-item')
+    anchor.scrollIntoView({
+        block: "center",
+        behavior: "smooth"
+    })
+}
 
 
 const navModal = $.modal({
     closable: true,
-    width: '800px',
-    height: '300px',
+    width: '700px',
+    height: '400px',
     overflow: 'auto',
     footerButtons: [
         {text: 'Close', type: 'light', handler() {
@@ -676,9 +679,9 @@ const navModal = $.modal({
 
 
 const priceModal = $.modal({
-    title: 'Price for this product',
+    title: 'PRICE FOR THIS PRODUCT',
     closable: true,
-    width: '400px',
+    width: '500px',
     footerButtons: [
         {text: 'Close', type: 'light', handler() {
             priceModal.close()
@@ -699,20 +702,20 @@ document.addEventListener('click',event => {
 
     if (btnType === 'price'){
         priceModal.setContent(`
-        <p>The cost of this ${card.title} is: <b>${card.price}</b></p>
+        <p>THE COST OF THIS ${card.title} IS: <b>${card.price}</b></p>
         `)
         priceModal.open()
         event.preventDefault()
     } else if (btnType === 'delete'){
         $.confirm({
-            title: 'Are you sure?',
-            content: `<p>Are you sure you want to delete this ${card.title}?</p>`
+            title: 'ARE YOU SURE?',
+            content: `<p>ARE YOU SURE YOU WANT TO DELETE THIS ${card.title}?</p>`
         }).then( () => {
             cards = cards.filter(f => f.id !== id)
             render()
             if (cards.length === 0){
                 setTimeout(() => {
-                    console.log('You have completely deleted all cards!');
+                    alert('You have completely deleted all cards!');
                 },300)
             }
         }).catch( () => {
@@ -724,39 +727,24 @@ document.addEventListener('click',event => {
         event.preventDefault()
 
     } else if (btnType === 'header'){
-
-        document.querySelector('.main').innerHTML = header.html
+        const main = document.querySelector('.main')
+        main.style.opacity = '0'
+        main.style.transition = 'all .3s ease-in'
         setTimeout(() => {
-            scrollToAnchor()
-        },100)
+            main.innerHTML = header.html
+        }, 700)
+        setTimeout(() => {
+            main.style.opacity = '1'
+        }, 700)
+        if (pageYOffset > 0) {
+            setTimeout(() => {
+                scrollToAnchor()
+            },100)
+        }
         event.preventDefault()
     }
 })
 
-
-
-function scrollToAnchor() {
-    const anchor = document.querySelector('#scroll-item')
-    anchor.scrollIntoView({
-        block: "center",
-        behavior: "smooth"
-    })
-}
-
-
-
-
-/*
-
-
-Реализовать dragndrop на карточках в index.html
-
-Узнать как обращаться с конкретными элементами массива из уроков Владилена
-
-!!Когда пойму что такое промисы, реализовать удаление карточек без модального окна по щелчку на крестик, а потом поиграться с изменением массива.
-
-
-*/
 
 
 

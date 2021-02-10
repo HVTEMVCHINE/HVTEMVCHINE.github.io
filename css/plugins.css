@@ -18,7 +18,7 @@
 }
 
 .popup.open .popup-window{
-    transform: translateY(150px);
+    transform: translateY(100px);
 }
 
 .popup.open .popup-overlay{
@@ -79,7 +79,7 @@
 
 
 .popup-content::-webkit-scrollbar{
-    width: 12px;
+    width: 10px;
 }
 
 .popup-content::-webkit-scrollbar-track{
@@ -87,8 +87,9 @@
 }
 
 .popup-content::-webkit-scrollbar-thumb{
-    border-radius: 3px;
-    background:linear-gradient(#bfbfbf, #ffffff);
+    border-radius: 5px;
+    background: #ababab;
+
 }
 
 .popup-footer{
