@@ -681,10 +681,12 @@ function openBurger(){
     const burgerItem = document.querySelector('.header__burger')
     burgerItem.addEventListener('click', () => {
         document.querySelector('.header__nav').classList.add('active')
+        document.querySelector('body').style.overflowY = 'hidden'
     })
     const burgerClose = document.querySelector('.header__nav-close')
     burgerClose.addEventListener('click', () => {
         document.querySelector('.header__nav').classList.remove('active')
+        document.querySelector('body').style.overflowY = 'auto'
     })
 }
 
@@ -736,6 +738,9 @@ document.addEventListener('click',event => {
     } else if (btnType === 'header'){
        if (burgerNav.classList.contains('active')){
            burgerNav.classList.remove('active')
+           setTimeout(() => {
+               document.querySelector('body').style.overflowY = 'auto'
+           },50)
        }
 
         const main = document.querySelector('.main')
