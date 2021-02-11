@@ -677,7 +677,6 @@ function scrollToAnchor() {
         behavior: "smooth"
     })
 }
-
 function openBurger(){
     const burgerItem = document.querySelector('.header__burger')
     burgerItem.addEventListener('click', () => {
@@ -689,11 +688,8 @@ function openBurger(){
     })
 }
 
-
-
 openBurger()
 headerRenderNav()
-renderNav()
 
 
 
@@ -705,6 +701,8 @@ document.addEventListener('click',event => {
     const nav = menu.find(f => f.id === id)
     const card = cards.find(f => f.id === id)
     const header = headerNav.find(f => f.id === id)
+
+    const burgerNav = document.querySelector('.header__nav')
 
 
     if (btnType === 'price'){
@@ -729,12 +727,17 @@ document.addEventListener('click',event => {
         }).catch( () => {
         })
     } else if (btnType === 'btnNav'){
+        event.preventDefault()
         navModal.setTitle(`${nav.title}`)
         navModal.setContent(`${nav.text}`)
         navModal.open()
-        event.preventDefault()
+
 
     } else if (btnType === 'header'){
+       if (burgerNav.classList.contains('active')){
+           burgerNav.classList.remove('active')
+       }
+
         const main = document.querySelector('.main')
         main.style.opacity = '0'
         main.style.transition = 'all .3s ease-in'
@@ -749,6 +752,7 @@ document.addEventListener('click',event => {
                 scrollToAnchor()
             },100)
         }
+
         event.preventDefault()
     }
 })

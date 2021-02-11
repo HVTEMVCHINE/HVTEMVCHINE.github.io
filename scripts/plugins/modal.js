@@ -65,8 +65,8 @@ $.modal = function(options) {
     let destroyed = false
 
     const body = document.querySelector('html')
-    let lockPaddingValue = (window.innerWidth - document.querySelector('header').offsetWidth + 'px')
-    const fixItems = document.querySelectorAll('.fix-items')
+    let lockPaddingValue = window.innerWidth - document.querySelector('header').offsetWidth + 'px'
+    // const lockPadding = document.querySelector('.header')
 
 
 
@@ -75,30 +75,21 @@ $.modal = function(options) {
             if (destroyed){
                 console.log('Modal is destroyed');
             } else {
-                !closing && $modal.classList.add('open')
-                body.style.overflow = 'hidden'
-                body.style.paddingRight = lockPaddingValue
-                for (let fixItem of fixItems){
-                    fixItem.style.paddingRight = lockPaddingValue
-                }
-
-
+                    !closing && $modal.classList.add('open')
+                    body.style.overflow = 'hidden'
             }
 
         },
         close() {
-
             closing = true
             $modal.classList.remove('open')
             $modal.classList.add('hide')
             setTimeout(() => {
                 closing = false
                 $modal.classList.remove('hide')
-                body.style.overflow = 'auto'
-                body.style.paddingRight = '0px'
-                for (let fixItem of fixItems){
-                    fixItem.style.paddingRight = '0px'
-                }
+                body.style.overflowY = 'auto'
+                body.style.overflowX = 'hidden'
+
                 if (typeof options.onClose === 'function'){
                     options.onClose()
                 }
