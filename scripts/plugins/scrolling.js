@@ -20,33 +20,45 @@ function animOnScroll() {
 
             if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
                 render()
-                renderButtonScroll()
-                renderNav()
             } else
-             if (pageYOffset === 0){
+            if (pageYOffset === 0){
                 unRender()
             }
         }
-    }
-
-
-function renderButtonScroll() {
-
-    const scrollButton = document.querySelector('.things')
-    scrollButton.insertAdjacentHTML('afterbegin', `<div class="scroll-wrapper" data-scroll="scroll"><div class="scroll-btn" data-scroll="scroll"><i class="fas fa-angle-double-up" data-scroll="scroll"></i></div></div>`)
-
-
-
-    const anchor = document.getElementById('scroll-item')
-    const upPageButton = document.querySelector('[data-scroll]')
-    function scrollToAnchor() {
-        anchor.scrollIntoView({
-            block: "center",
-            behavior: "smooth"
-        })
-    }
-    upPageButton.addEventListener('click', scrollToAnchor)
 }
+
+(function () {
+    const header = document.querySelector('.header')
+    window.onscroll = () => {
+        if (window.pageYOffset > 168) {
+            header.classList.add('active')
+        } else {
+            header.classList.remove('active')
+        }
+    }
+}())
+
+
+// function renderButtonScroll() {
+//
+//     const scrollButton = document.querySelector('.things')
+//     scrollButton.insertAdjacentHTML('afterbegin', `<div class="scroll-wrapper" data-scroll="scroll"><div class="scroll-btn" data-scroll="scroll"><i class="fas fa-angle-double-up" data-scroll="scroll"></i></div></div>`)
+//
+//
+//
+//     const anchor = document.getElementById('scroll-item')
+//     const upPageButton = document.querySelector('[data-scroll]')
+//     function scrollToAnchor() {
+//         anchor.scrollIntoView({
+//             block: "center",
+//             behavior: "smooth"
+//         })
+//     }
+//     upPageButton.addEventListener('click', scrollToAnchor)
+// }
+
+
+
 
 
 

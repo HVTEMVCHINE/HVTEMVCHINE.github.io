@@ -6,6 +6,8 @@ Element.prototype.appendAfter = function (element) {
 }
 
 
+
+
 // Инстанс модального окна / реализация
 function _createModal (options){
     const DEFAULT_WIDTH = 800
@@ -64,7 +66,7 @@ $.modal = function(options) {
 
     const body = document.querySelector('html')
     let lockPaddingValue = (window.innerWidth - document.querySelector('header').offsetWidth + 'px')
-    const lockPadding = document.querySelector('.header')
+    const fixItems = document.querySelectorAll('.fix-items')
 
 
 
@@ -76,7 +78,11 @@ $.modal = function(options) {
                 !closing && $modal.classList.add('open')
                 body.style.overflow = 'hidden'
                 body.style.paddingRight = lockPaddingValue
-                lockPadding.style.paddingRight = lockPaddingValue
+                for (let fixItem of fixItems){
+                    fixItem.style.paddingRight = lockPaddingValue
+                }
+
+
             }
 
         },
@@ -90,7 +96,9 @@ $.modal = function(options) {
                 $modal.classList.remove('hide')
                 body.style.overflow = 'auto'
                 body.style.paddingRight = '0px'
-                lockPadding.style.paddingRight = '0px'
+                for (let fixItem of fixItems){
+                    fixItem.style.paddingRight = '0px'
+                }
                 if (typeof options.onClose === 'function'){
                     options.onClose()
                 }

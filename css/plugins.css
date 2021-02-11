@@ -131,3 +131,6 @@
     transition: all .3s ease-out;
 }
 
+.card-desc{
+    padding-bottom: 10px;
+}

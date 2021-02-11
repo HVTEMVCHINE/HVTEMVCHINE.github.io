@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/plugins.css">
+    <link rel="stylesheet" href="css/adaptive.css">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
@@ -23,7 +24,7 @@
 
 <body>
 <!--header start-->
-<header id="header" class="header">
+<header id="header" class="header fix-items">
     <div class="wrapper">
         <div class="header__wrapper">
             <div class="header__logo">
@@ -34,7 +35,15 @@
             <nav class="header__nav">
                 <ul class="header__list">
                 </ul>
+                <div class="header__nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
             </nav>
+            <div class="header__burger fix-items">
+                <div class="burger__line burger__first"></div>
+                <div class="burger__line burger__second"></div>
+                <div class="burger__line burger__third"></div>
+            </div>
         </div>
     </div>
 </header>

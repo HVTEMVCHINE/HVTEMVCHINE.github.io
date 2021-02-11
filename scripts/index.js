@@ -2,16 +2,16 @@
 
 
 let cards = [
-    {id: 1, title: 'bottle', price: Math.floor(Math.random() * (600 - 145) + 18) + ' $', img: 'img/flacon.jpg'},
-    {id: 2, title: 'lamp', price: Math.floor(Math.random() * (600 - 146) + 11) + ' $', img: 'img/lamp.jpg'},
-    {id: 3, title: 'spoon', price: Math.floor(Math.random() * (600 - 146) + 34) + ' $', img: 'img/spoon.jpg'},
-    {id: 4, title: 'table', price: Math.floor(Math.random() * (600 - 145) + 12) + ' $', img: 'img/table.jpg'},
-    {id: 5, title: 'clock', price: Math.floor(Math.random() * (600 - 144) + 9) + ' $', img: 'img/clock1.jpg'},
-    {id: 6, title: 'chandelier', price: Math.floor(Math.random() * (600 - 16) + 88) + ' $', img: 'img/chairs.jpg'},
-    {id: 7, title: 'clock', price: Math.floor(Math.random() * (600 - 147) + 3) + ' $', img: 'img/clock2.jpg'},
-    {id: 8, title: 'chair', price: Math.floor(Math.random() * (600 - 175) + 4) + ' $', img: 'img/stool.jpg'},
-    {id: 9, title: 'cosmetics', price: Math.floor(Math.random() * (600 - 146) + 7) + ' $', img: 'img/corrine.jpg'},
-    {id: 10, title: 'tumbler', price: Math.floor(Math.random() * (600 - 145) + 5) + ' $', img: 'img/tumblr.jpg'}
+    {id: 1, title: 'BOTTLE', desc: 'Would you like a design which makes your bottle stand out from the crowd? Or would you like to set new records in material savings with professional lightweighting? Regardless of your demands on bottle design – the design professionals from Krones are guaranteed to find the right shape to suit your ideas and meet your goals.', price: Math.floor(Math.random() * (600 - 145) + 18) + ' $', img: 'img/flacon.jpg'},
+    {id: 2, title: 'LAMP', desc: 'We go to work in the dark, we come home in the dark, we look at screens - a huge amount of time - and we are constantly exposed to artificial light. Many people, especially in urban areas of the world, do not even notice the impact of lighting on their life, their mood and even their well-being. Numerous studies show how the way we choose to light up our lifes, influences our everyday and our inner "body clock". Designers and manufacturers alike ask themselves today more than ever: what is good lighting, what is good lamp design nowadays? Are LEDs still going strong? Blue light or red light? Visual, decorative lamps for the living room or rather alsmost invisible, indirect lighting? How does hotel lighting differ from home lighting, how bedroom from kitchen lighting?', price: Math.floor(Math.random() * (600 - 146) + 11) + ' $', img: 'img/lamp.jpg'},
+    {id: 3, title: 'SPOON', desc: 'A spoon is a utensil consisting of a small shallow bowl (also known as a head), oval or round, at the end of a handle. A type of cutlery (sometimes called flatware in the United States), especially as part of a place setting, it is used primarily for transferring food to the mouth. Spoons are also used in food preparation to measure, mix, stir and toss ingredients and for serving food. Present day spoons are made from metal (notably flat silver or silverware, plated or solid), wood, porcelain or plastic. There are a wide variety of spoons that are made of a variety of materials and by different cultures for many different uses and foods.', price: Math.floor(Math.random() * (600 - 146) + 34) + ' $', img: 'img/spoon.jpg'},
+    {id: 4, title: 'TABLE', desc: 'A table is an item of furniture with a flat top and one or more legs, used as a surface for working at, eating from or on which to place things. Some common types of table are the dining room table, which is used for seated persons to eat meals; the coffee table, which is a low table used in living rooms to display items or serve refreshments; and the bedside table, which is used to place an alarm clock and a lamp. There are also a range of specialized types of tables, such as drafting tables, used for doing architectural drawings, and sewing tables.', price: Math.floor(Math.random() * (600 - 145) + 12) + ' $', img: 'img/table.jpg'},
+    {id: 5, title: 'CLOCK', desc: 'A clock is a device used to measure, keep, and indicate time. The clock is one of the oldest human inventions, meeting the need to measure intervals of time shorter than the natural units: the day, the lunar month, and the year. Devices operating on several physical processes have been used over the millennia. Some predecessors to the modern clock may be considered as "clocks" that are based on movement in nature: A sundial shows the time by displaying the position of a shadow on a flat surface. There is a range of duration timers, a well-known example being the hourglass. Water clocks, along with the sundials, are possibly the oldest time-measuring instruments. A major advance occurred with the invention of the verge escapement, which made possible the first mechanical clocks around 1300 in Europe, which kept time with oscillating timekeepers like balance wheels', price: Math.floor(Math.random() * (600 - 144) + 9) + ' $', img: 'img/clock1.jpg'},
+    {id: 6, title: 'CHANDELIER', desc: 'Classic chandeliers have arrays of hanging crystal prisms to illuminate a room with refracted light, while contemporary chandeliers assume a more minimalist design that does not contain prisms and illuminate a room with direct light from the lamps, sometimes also equipped with translucent glass covering each lamp. Modern chandeliers have a more modernized design that uses LEDs, and combines the elements of both classic and contemporary designs; some are also equipped with refractive crystal prisms or small mirrors.Chandeliers are distinct from pendant lights, as they usually consist of multiple lamps and hang in branched frames, whereas pendant lights hang from a single cord and only contain one or two lamps with fewer decorative elements. Due to their size, they are often installed in hallways, living rooms, staircases, lounges, and dining rooms. However, miniature chandeliers also exist, which can be installed in smaller spaces such as bedrooms or small living spaces.', price: Math.floor(Math.random() * (600 - 16) + 88) + ' $', img: 'img/chairs.jpg'},
+    {id: 7, title: 'CLOCK', desc: 'A clock is a device used to measure, keep, and indicate time. The clock is one of the oldest human inventions, meeting the need to measure intervals of time shorter than the natural units: the day, the lunar month, and the year. Devices operating on several physical processes have been used over the millennia. Some predecessors to the modern clock may be considered as "clocks" that are based on movement in nature: A sundial shows the time by displaying the position of a shadow on a flat surface. There is a range of duration timers, a well-known example being the hourglass. Water clocks, along with the sundials, are possibly the oldest time-measuring instruments. A major advance occurred with the invention of the verge escapement, which made possible the first mechanical clocks around 1300 in Europe, which kept time with oscillating timekeepers like balance wheels', price: Math.floor(Math.random() * (600 - 147) + 3) + ' $', img: 'img/clock2.jpg'},
+    {id: 8, title: 'CHAIR', desc: 'One of the basic pieces of furniture, a chair is a type of seat. Its primary features are two pieces of a durable material, attached as back and seat to one another at a 90° or slightly greater angle, with usually the four corners of the horizontal seat attached in turn to four legs—or other parts of the seats underside attached to three legs or to a shaft about which a four-arm turnstile on rollers can turn—strong enough to support the weight of a person who sits on the seat (usually wide and broad enough to hold the lower body from the buttocks almost to the knees) and leans against the vertical back (usually high and wide enough to support the back to the shoulder blades). The legs are typically high enough for the seated persons thighs and knees to form a 90° or lesser angle.', price: Math.floor(Math.random() * (600 - 175) + 4) + ' $', img: 'img/stool.jpg'},
+    {id: 9, title: 'COSMETICS', desc: 'Cosmetics are a category of health and beauty products that are used to care for the face and body, or used to accentuate or change a persons appearance. Though cosmetics are commonly thought of as only makeup used to alter a persons appearance, cosmetics can also refer to a number of products used to care for the skin and the body, as well as those used to add fragrance to it. There are a large number of cosmetics available under these various categories, each designed for different purposes and featuring different characteristics.Cosmetics are widely used and accepted in many different cultures. The popularity of cosmetics can be attributed to the creative self-expression and self-identity aspect. Makeup and cosmetics can be used to subtly enhance natural features or create a brand new, out-of-this-world look. The cosmetic and makeup industry is worth billions of dollars and continues to increase due to the growing popularity and acceptance of makeup and cosmetics.', price: Math.floor(Math.random() * (600 - 146) + 7) + ' $', img: 'img/corrine.jpg'},
+    {id: 10, title: 'TUMBLER', desc: 'A tumbler is a flat-floored beverage container usually made of plastic, glass or stainless steel. Theories vary as to the etymology of the word tumbler. One such theory is that the glasses originally had a pointed or convex base and could not be set down without spilling. Another is that they had weighted bottoms which caused them to right themselves if knocked over. Collins glass, for a tall mixed drink. Dizzy Cocktail glass, a glass with a wide, shallow bowl, comparable to a normal cocktail glass but without the stem. Highball glass, for mixed drinks.', price: Math.floor(Math.random() * (600 - 145) + 5) + ' $', img: 'img/tumblr.jpg'}
 ]
 const menu = [
     {id: 1, title: 'ALL ABOUT US', text: `Building a brand doesn’t happen overnight. It takes a lot of work to forge strong relationships with people—and much of that work is done through marketing. Unless you have a powerhouse internal team to help you tell your story, it’s likely you’ll need a little support in crafting and executing your marketing strategy. But searching for the right partner to help you do that can be confusing. There are all sorts of agencies out there, so how do you know whether you should hire a creative agency, a digital agency, or an ad agency?`, name: 'ALL', img: '<img src="img/icons/line2.svg" class="things__nav-pic-string" alt="">'},
@@ -351,7 +351,7 @@ const headerNav = [
                 <!--CARD 5-->
                 <div class="news__card">
                     <div class="card__video">
-                        <div class="card__video-pic"><img src="img/blog/play.png" alt=""></div>
+                        <div class="card__video-pic"><a href="http://youtube.com/" target="_blank"><img src="img/blog/play.png" alt=""></a></div>
                     </div>
                 </div>
 
@@ -619,14 +619,34 @@ const headerNav = [
     {id: 6, name: `<i class="fas fa-search"></i>`}
 ]
 
-
-
+const navModal = $.modal({
+    closable: true,
+    width: '700px',
+    height: '400px',
+    overflow: 'auto',
+    footerButtons: [
+        {text: 'Close', type: 'light', handler() {
+                navModal.close()
+            }}
+    ]
+})
+const priceModal = $.modal({
+    title: 'PRICE FOR THIS PRODUCT',
+    closable: true,
+    width: '700px',
+    footerButtons: [
+        {text: 'Close', type: 'light', handler() {
+                priceModal.close()
+            }}
+    ]
+})
 
 const toHTML = card => `
 <div class="things__card" >
                     <div class="things__card-link" data-btn="price" data-id="${card.id}"><i class="fas fa-times card-delete" data-btn="delete" data-id="${card.id}"></i><img src="${card.img}" alt="${card.alt}" class="things__card-pic"></div>
                 </div>`
-const toHeaderHTML = nav => `<li class="header__item">
+const toHeaderHTML = nav => `
+<li class="header__item">
                         <a href="" class="header__link" data-el="true" data-btn="header" data-id="${nav.id}">${nav.name}</a></li>`
 const toNavHTML = nav => `
  <li class="thing__item">
@@ -635,14 +655,9 @@ const toNavHTML = nav => `
 function renderNav() {
     document.querySelector('.things__list').innerHTML = menu.map(toNavHTML).join('')
 }
-
 function headerRenderNav() {
     document.querySelector('.header__list').innerHTML = headerNav.map(toHeaderHTML).join('')
 }
-headerRenderNav()
-
-
-
 function render() {
     const thingCards = document.querySelector('.things__cards')
     thingCards.innerHTML = cards.map(toHTML).join('')
@@ -655,7 +670,6 @@ function unRender() {
     thingCards.innerHTML = ''
     thingCards.classList.remove('fade')
 }
-
 function scrollToAnchor() {
     const anchor = document.querySelector('#scroll-item')
     anchor.scrollIntoView({
@@ -664,30 +678,23 @@ function scrollToAnchor() {
     })
 }
 
-
-const navModal = $.modal({
-    closable: true,
-    width: '700px',
-    height: '400px',
-    overflow: 'auto',
-    footerButtons: [
-        {text: 'Close', type: 'light', handler() {
-                navModal.close()
-            }}
-    ]
-})
+function openBurger(){
+    const burgerItem = document.querySelector('.header__burger')
+    burgerItem.addEventListener('click', () => {
+        document.querySelector('.header__nav').classList.add('active')
+    })
+    const burgerClose = document.querySelector('.header__nav-close')
+    burgerClose.addEventListener('click', () => {
+        document.querySelector('.header__nav').classList.remove('active')
+    })
+}
 
 
-const priceModal = $.modal({
-    title: 'PRICE FOR THIS PRODUCT',
-    closable: true,
-    width: '500px',
-    footerButtons: [
-        {text: 'Close', type: 'light', handler() {
-            priceModal.close()
-        }}
-        ]
-})
+
+openBurger()
+headerRenderNav()
+renderNav()
+
 
 
 document.addEventListener('click',event => {
@@ -702,6 +709,7 @@ document.addEventListener('click',event => {
 
     if (btnType === 'price'){
         priceModal.setContent(`
+        <p class="card-desc">${card.desc}</p>
         <p>THE COST OF THIS ${card.title} IS: <b>${card.price}</b></p>
         `)
         priceModal.open()

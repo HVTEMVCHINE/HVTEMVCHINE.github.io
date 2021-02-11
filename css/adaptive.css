@@ -1,0 +1,279 @@
+.header__burger{
+    width: 35px;
+    height: 20px;
+    position: relative;
+    display: none;
+    margin-top: 40px;
+}
+
+
+
+.burger__line{
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #494949;
+    position: absolute;
+    left: 0;
+}
+
+.burger__first{
+    top: 0;
+}
+
+.burger__second{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burger__third{
+    bottom: 0;
+}
+
+.header__nav-close{
+    display: none;
+}
+
+
+/*media start*/
+
+@media screen and (max-width: 1024px){
+    .intro{
+        min-height: 85vh;
+    }
+
+    .portfolio{
+        height: 75vh;
+    }
+}
+
+@media screen and (max-width: 859px){
+    .things__nav-pic-string{
+        padding: 2px 10px;
+    }
+
+    .intro{
+        min-height: 70vh;
+    }
+
+    .portfolio{
+        height: 58vh;
+    }
+
+}
+
+@media screen and (max-width: 767px){
+
+    .intro{
+        min-height: 80vh;
+    }
+
+    .things__nav-pic-string{
+        padding: 2px 10px;
+    }
+
+
+    .header__burger{
+        display: block;
+    }
+
+    .header__nav{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, .96);
+        z-index: 10;
+        padding: 90px 75px;
+        transform: translateX(100%);
+        transition: transform .2s ease-in;
+    }
+
+    .header__nav.active{
+        transform: translateX(0);
+    }
+
+    .header__list{
+        padding: 0 20px;
+    }
+
+    .header__item{
+        width: 100%;
+        margin-bottom: 28px;
+    }
+
+    .header__item:last-child{
+        margin-bottom: 0;
+        margin-top: 100px;
+        text-align: center;
+    }
+
+    .header__link{
+        font-size: 40px;
+        line-height: 40px;
+        color: white;
+    }
+
+    .header__link:hover, .header__link:focus{
+       color: #ababab;
+    }
+
+    .header__nav-close{
+        color: white;
+        cursor: pointer;
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        font-size: 40px;
+        display: block;
+    }
+
+    .header__nav-close:focus, .header__nav-close:hover{
+        color: #ababab;
+    }
+}
+
+@media screen and (max-width: 719px){
+    .things__nav-pic-string{
+        padding: 2px 9px;
+    }
+}
+
+@media screen and (max-width: 540px){
+
+    .intro__title{
+        width: 540px;
+    }
+
+    .intro__title-main{
+        font-size: 35px;
+    }
+
+    .things__nav-pic-string{
+        display: none;
+    }
+
+    .things__item{
+        padding-right: 32px;
+    }
+
+    .things__link-nav{
+        margin-right: 11px;
+        font-size: 13px;
+    }
+
+    .footer__social-icon{
+        margin-right: 60px;
+    }
+
+    .things__cards {
+        columns: 2;
+    }
+}
+
+@media screen and (max-width: 414px){
+    .intro__title {
+        width: 414px;
+        height: 95px;
+    }
+    .intro__title-main {
+        line-height: 35px;
+    }
+
+    .things__nav-pic:first-child{
+        display: none;
+    }
+
+    .things__nav{
+        display: none;
+    }
+
+    .footer__social-icon{
+        margin-right: 40px;
+    }
+
+    .things__cards {
+        columns: 2;
+    }
+
+    .wrapper{
+        max-width: 411px;
+    }
+
+    .footer__subtitle{
+        text-align: center;
+    }
+
+    .footer__subtitle-text{
+        font-size: 12px;
+    }
+
+    .footer__social-link{
+        font-size: 23px;
+    }
+}
+
+@media screen and (max-width: 414px){
+    .intro__title{
+        max-width: 375px;
+    }
+
+    .footer__social-icon{
+        margin-right: 36px;
+    }
+
+    .footer__social-link{
+        font-size: 23px;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .intro__title{
+        max-width: 360px;
+    }
+
+    .footer__social-link{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .intro__title{
+        max-width: 320px;
+    }
+
+    .things__cards {
+        columns: 1;
+    }
+
+    .footer__social-link{
+        font-size: 20px;
+    }
+
+    .footer__social-icon{
+        margin-right: 28px;
+    }
+}
+
+@media screen and (max-width: 280px){
+    .intro__title{
+        max-width: 280px;
+        height: 115px;
+    }
+
+    .footer__social-link{
+        font-size: 20px;
+    }
+
+    .footer__social-icon{
+        margin-right: 24px;
+    }
+
+
+}
+
+
+
+
+/*media end*/

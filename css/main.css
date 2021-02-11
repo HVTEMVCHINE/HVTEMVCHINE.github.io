@@ -409,7 +409,7 @@ body::-webkit-scrollbar{
 }
 
 body::-webkit-scrollbar-track{
-    background: linear-gradient(#eeeeee, white);
+    background: #fafafa;
 }
 
 body::-webkit-scrollbar-thumb{
@@ -425,21 +425,26 @@ img {
 .wrapper {
     max-width: 1140px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 
 /*header styles start*/
 
 .header {
-    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.15);
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.9);
     width: 100%;
     position: fixed;
     z-index: 5;
     top: 0;
     left: 0;
     margin-right: calc(-1 * (100vw - 100%));
-    opacity: 0.991;
+    transition: all .3s ease-in;
+}
+
+.header.active{
+    background-color: white;
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.09);
 }
 
 .header__wrapper {
@@ -1052,7 +1057,7 @@ img {
     margin-bottom: 0;
     margin-top: 90px;
     width: 100%;
-    height: 420px;
+    height: 71vh;
     box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.15);
 
 }
@@ -1562,6 +1567,22 @@ img {
     background: #fafafa;
     font-size: 16px;
     margin-bottom: 30px;
+}
+
+.office__input textarea::-webkit-scrollbar{
+    width: 12px;
+    cursor: default;
+}
+
+.office__input textarea::-webkit-scrollbar-track{
+    background: #fafafa;
+    cursor: default;
+}
+
+.office__input textarea::-webkit-scrollbar-thumb{
+    border-radius: 3px;
+    background-color: #ababab;
+    cursor: default;
 }
 
 .office__input-button{
