@@ -21,9 +21,6 @@ function animOnScroll() {
             if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
                 render()
                 renderNav()
-            } else
-            if (pageYOffset === 0){
-                unRender()
             }
         }
 }

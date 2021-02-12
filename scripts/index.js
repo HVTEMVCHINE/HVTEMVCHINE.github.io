@@ -385,7 +385,7 @@ const headerNav = [
                 <div class="news__card">
                     <div class="card__search">
                         <form action="#">
-                            <input type="search" name="user-like-to-do" class="card__search-input" placeholder="Search" style="width: 270px;" />
+                            <input type="search" name="user-like-to-do" class="card__search-input" placeholder="Search" style="max-width: 100%;" />
                         </form>
                         <button class="card__search-button">
                             <i class="fas fa-search"></i>
@@ -655,6 +655,9 @@ const toNavHTML = nav => `
 function renderNav() {
     document.querySelector('.things__list').innerHTML = menu.map(toNavHTML).join('')
 }
+
+
+
 function headerRenderNav() {
     document.querySelector('.header__list').innerHTML = headerNav.map(toHeaderHTML).join('')
 }
@@ -664,11 +667,6 @@ function render() {
     setTimeout(() => {
         thingCards.classList.add('fade')
     }, 100)
-}
-function unRender() {
-    const thingCards = document.querySelector('.things__cards')
-    thingCards.innerHTML = ''
-    thingCards.classList.remove('fade')
 }
 function scrollToAnchor() {
     const anchor = document.querySelector('#scroll-item')

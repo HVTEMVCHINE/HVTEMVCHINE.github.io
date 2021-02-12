@@ -65,10 +65,6 @@ $.modal = function(options) {
     let destroyed = false
 
     const body = document.querySelector('html')
-    let lockPaddingValue = window.innerWidth - document.querySelector('header').offsetWidth + 'px'
-    // const lockPadding = document.querySelector('.header')
-
-
 
     const modal = {
         open() {

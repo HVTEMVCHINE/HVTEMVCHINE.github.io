@@ -858,16 +858,18 @@ img {
 
 .info__item{
     display: flex;
+    flex-wrap: nowrap;
     height: 600px;
     margin-bottom: 100px;
 }
 
 .info__photo{
+    max-width: 100%;
     margin-right: 54px;
 }
 
 .info__description{
-    width: 552px;
+    max-width: 552px;
     height: 600px;
 }
 
