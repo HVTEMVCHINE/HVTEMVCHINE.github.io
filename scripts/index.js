@@ -731,6 +731,7 @@ document.addEventListener('click',event => {
            setTimeout(() => {
                document.querySelector('body').style.overflowY = 'auto'
                document.querySelector('.burger__line').classList.remove('active')
+               open = false
            },50)
        }
         const main = document.querySelector('.main')
@@ -754,15 +755,19 @@ document.addEventListener('click',event => {
         document.querySelector('body').style.overflowY = 'hidden'
         document.querySelector('.burger__line').classList.add('active')
     } else if (btnType === 'close-menu'){
-        open = false
         document.querySelector('.header__nav').classList.remove('active')
         document.querySelector('body').style.overflowY = 'auto'
         document.querySelector('.burger__line').classList.remove('active')
+        setTimeout(() => {
+            open = false
+        }, 50)
     } else if ((btnType === 'open-menu') && open){
-        open = false
         document.querySelector('.header__nav').classList.remove('active')
         document.querySelector('body').style.overflowY = 'auto'
         document.querySelector('.burger__line').classList.remove('active')
+        setTimeout(() => {
+            open = false
+        }, 50)
     }
 })
 
