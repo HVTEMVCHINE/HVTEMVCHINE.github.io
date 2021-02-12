@@ -1,5 +1,6 @@
 'use strict'
 
+let open = false
 
 let cards = [
     {id: 1, title: 'BOTTLE', desc: 'Would you like a design which makes your bottle stand out from the crowd? Or would you like to set new records in material savings with professional lightweighting? Regardless of your demands on bottle design – the design professionals from Krones are guaranteed to find the right shape to suit your ideas and meet your goals.', price: Math.floor(Math.random() * (600 - 145) + 18) + ' $', img: 'img/flacon.jpg'},
@@ -675,20 +676,9 @@ function scrollToAnchor() {
         behavior: "smooth"
     })
 }
-function openBurger(){
-    const burgerItem = document.querySelector('.header__burger')
-    burgerItem.addEventListener('click', () => {
-        document.querySelector('.header__nav').classList.add('active')
-        document.querySelector('body').style.overflowY = 'hidden'
-    })
-    const burgerClose = document.querySelector('.header__nav-close')
-    burgerClose.addEventListener('click', () => {
-        document.querySelector('.header__nav').classList.remove('active')
-        document.querySelector('body').style.overflowY = 'auto'
-    })
-}
 
-openBurger()
+
+
 headerRenderNav()
 
 
@@ -703,6 +693,8 @@ document.addEventListener('click',event => {
     const header = headerNav.find(f => f.id === id)
 
     const burgerNav = document.querySelector('.header__nav')
+
+
 
 
     if (btnType === 'price'){
@@ -738,9 +730,9 @@ document.addEventListener('click',event => {
            burgerNav.classList.remove('active')
            setTimeout(() => {
                document.querySelector('body').style.overflowY = 'auto'
+               document.querySelector('.burger__line').classList.remove('active')
            },50)
        }
-
         const main = document.querySelector('.main')
         main.style.opacity = '0'
         main.style.transition = 'all .3s ease-in'
@@ -755,8 +747,22 @@ document.addEventListener('click',event => {
                 scrollToAnchor()
             },100)
         }
-
         event.preventDefault()
+    } else if ((btnType === 'open-menu') && !open){
+        open = true
+        document.querySelector('.header__nav').classList.add('active')
+        document.querySelector('body').style.overflowY = 'hidden'
+        document.querySelector('.burger__line').classList.add('active')
+    } else if (btnType === 'close-menu'){
+        open = false
+        document.querySelector('.header__nav').classList.remove('active')
+        document.querySelector('body').style.overflowY = 'auto'
+        document.querySelector('.burger__line').classList.remove('active')
+    } else if ((btnType === 'open-menu') && open){
+        open = false
+        document.querySelector('.header__nav').classList.remove('active')
+        document.querySelector('body').style.overflowY = 'auto'
+        document.querySelector('.burger__line').classList.remove('active')
     }
 })
 

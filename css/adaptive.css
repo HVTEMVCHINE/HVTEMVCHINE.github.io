@@ -1,20 +1,24 @@
 .header__burger{
     width: 35px;
-    height: 20px;
+    height: 25px;
     position: relative;
     display: none;
-    margin-top: 40px;
+    margin-top: 35px;
 }
-
-
 
 .burger__line{
     display: block;
     width: 100%;
-    height: 2px;
-    background-color: #494949;
     position: absolute;
-    left: 0;
+    font-size: 30px;
+    color: #4a4a4a;
+}
+
+.burger__line.active{
+    position: absolute;
+    z-index: 20;
+    color: grey;
+    transition: all .3s ease-in;
 }
 
 .burger__first{
@@ -32,6 +36,8 @@
 
 .header__nav-close{
     display: none;
+    width: 100%;
+    height: 60px;
 }
 
 
@@ -104,7 +110,7 @@
 
     }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 767px){
 
     .intro{
         min-height: 80vh;
@@ -121,19 +127,31 @@
 
     .header__nav{
         position: fixed;
+        background: rgba(0, 0, 0, 0);
+        z-index: 12;
+        transform: translateX(100%);
+        transition: all .35s ease-in;
+        opacity: 0;
+        padding: 0;
         width: 100%;
         height: 100%;
-        top: 0;
-        left: 0;
-        background: rgba(0, 0, 0, .96);
-        z-index: 10;
-        padding: 155px 45px;
-        transform: translateX(100%);
-        transition: transform .3s ease-in;
     }
 
     .header__nav.active{
-        transform: translateX(45%);
+        transform: translateX(0);
+        height: 100%;
+        width: 100%;
+        opacity: 1;
+    }
+
+    .header__nav-list{
+        background: rgba(0, 0, 0, 0.94);
+        transform: translateX(40%);
+        padding-top: 155px;
+        padding-bottom: 155px;
+        height: 100%;
+        text-align: center;
+        padding-right: 160px;
     }
 
     .header__list{
@@ -143,6 +161,7 @@
     .header__item{
         width: 100%;
         margin-bottom: 28px;
+        margin-right: 0;
     }
 
     .header__item:last-child{
@@ -164,10 +183,11 @@
         color: white;
         cursor: pointer;
         position: absolute;
-        left: 30px;
         top: 15px;
-        font-size: 40px;
+        font-size: 25px;
         display: block;
+        padding-top: 20px;
+        padding-right: 270px;
     }
 
     .info{
@@ -590,6 +610,10 @@
 
     .blog__title-main{
         font-size: 30px;
+    }
+
+    .header__nav-list{
+        padding-left: 30px;
     }
 
 }

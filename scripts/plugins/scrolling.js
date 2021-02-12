@@ -19,8 +19,8 @@ function animOnScroll() {
             let animItemPoint = window.innerHeight - animItemHeight / animStart // видимая часть при скролле
 
             if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
-                render()
                 renderNav()
+                render()
             }
         }
 }
