@@ -30,8 +30,6 @@ function animOnScroll() {
     window.onscroll = () => {
         if (window.pageYOffset > 168) {
             header.classList.add('active')
-        } else {
-            header.classList.remove('active')
         }
     }
 }())

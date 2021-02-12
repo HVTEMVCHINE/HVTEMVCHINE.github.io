@@ -64,7 +64,7 @@ $.modal = function(options) {
     let closing = false
     let destroyed = false
 
-    const body = document.querySelector('html')
+    const body = document.querySelector('body')
 
     const modal = {
         open() {
@@ -72,7 +72,7 @@ $.modal = function(options) {
                 console.log('Modal is destroyed');
             } else {
                     !closing && $modal.classList.add('open')
-                    body.style.overflow = 'hidden'
+                    body.style.overflowY = 'hidden'
             }
 
         },
@@ -84,7 +84,6 @@ $.modal = function(options) {
                 closing = false
                 $modal.classList.remove('hide')
                 body.style.overflowY = 'auto'
-                body.style.overflowX = 'hidden'
 
                 if (typeof options.onClose === 'function'){
                     options.onClose()

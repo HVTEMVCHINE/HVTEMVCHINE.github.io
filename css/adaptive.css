@@ -129,35 +129,39 @@
     .header__nav{
         position: fixed;
         background: rgba(0, 0, 0, 0);
-        z-index: 12;
-        transform: translateX(100%);
-        transition: all .35s ease-in;
-        opacity: 0;
+        z-index: -2;
+        visibility: hidden;
         padding: 0;
         width: 100%;
-        height: 100%;
+        height: 100vh;
+        transition: all .3s ease-out;
+        left: 0;
     }
 
     .header__nav.active{
-        transform: translateX(0);
-        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        visibility: visible;
+        z-index: 15;
         width: 100%;
-        opacity: 1;
+        height: 100vh;
+        position: fixed;
+        left: 0;
     }
 
     .header__nav-list{
-        background: rgba(0, 0, 0, 0.94);
-        transform: translateX(40%);
+        background: rgba(0, 0, 0, 0.98);
         padding-top: 155px;
         padding-bottom: 155px;
-        height: 100%;
+        height: 100vh;
         text-align: center;
         padding-right: 160px;
-        position: relative;
+        position: absolute;
+        transform: translateX(700px);
+        transition: transform .7s ease-in-out;
     }
 
-    .header__list{
-        padding: 0 1px;
+    .header__nav-list.active{
+        transform: translateX(180px);
     }
 
     .header__item{

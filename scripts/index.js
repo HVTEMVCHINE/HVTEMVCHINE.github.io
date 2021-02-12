@@ -657,7 +657,18 @@ function renderNav() {
     document.querySelector('.things__list').innerHTML = menu.map(toNavHTML).join('')
 }
 
-
+function burgerOpen() {
+    document.querySelector('.header__nav').classList.add('active')
+    document.querySelector('.header__nav-list').classList.add('active')
+    document.querySelector('body').style.overflowY = 'hidden'
+    document.querySelector('.burger__line').classList.add('active')
+}
+function burgerClose() {
+    document.querySelector('.header__nav').classList.remove('active')
+    document.querySelector('.header__nav-list').classList.remove('active')
+    document.querySelector('body').style.overflowY = 'auto'
+    document.querySelector('.burger__line').classList.remove('active')
+}
 
 function headerRenderNav() {
     document.querySelector('.header__list').innerHTML = headerNav.map(toHeaderHTML).join('')
@@ -676,8 +687,6 @@ function scrollToAnchor() {
         behavior: "smooth"
     })
 }
-
-
 
 headerRenderNav()
 
@@ -729,8 +738,7 @@ document.addEventListener('click',event => {
        if (burgerNav.classList.contains('active')){
            burgerNav.classList.remove('active')
            setTimeout(() => {
-               document.querySelector('body').style.overflowY = 'auto'
-               document.querySelector('.burger__line').classList.remove('active')
+               burgerClose()
                open = false
            },50)
        }
@@ -751,20 +759,14 @@ document.addEventListener('click',event => {
         event.preventDefault()
     } else if ((btnType === 'open-menu') && !open){
         open = true
-        document.querySelector('.header__nav').classList.add('active')
-        document.querySelector('body').style.overflowY = 'hidden'
-        document.querySelector('.burger__line').classList.add('active')
+        burgerOpen()
     } else if (btnType === 'close-menu'){
-        document.querySelector('.header__nav').classList.remove('active')
-        document.querySelector('body').style.overflowY = 'auto'
-        document.querySelector('.burger__line').classList.remove('active')
+        burgerClose()
         setTimeout(() => {
             open = false
         }, 5)
     } else if ((btnType === 'open-menu') && open){
-        document.querySelector('.header__nav').classList.remove('active')
-        document.querySelector('body').style.overflowY = 'auto'
-        document.querySelector('.burger__line').classList.remove('active')
+        burgerClose()
         setTimeout(() => {
             open = false
         }, 5)
