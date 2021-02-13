@@ -617,7 +617,8 @@ const headerNav = [
             </div>
         </div>
     </div>`},
-    {id: 6, name: `<i class="fas fa-search"></i>`}
+    {id: 6, name: `<i class="fas fa-search" data-btn="header" data-id="6"></i>`},
+    {id: 7, name: `<img src="img/logo.png" alt="" class="header__nav-logo-pic"`}
 ]
 
 const navModal = $.modal({
@@ -647,8 +648,7 @@ const toHTML = card => `
                     <div class="things__card-link" data-btn="price" data-id="${card.id}"><i class="fas fa-times card-delete" data-btn="delete" data-id="${card.id}"></i><img src="${card.img}" alt="${card.alt}" class="things__card-pic"></div>
                 </div>`
 const toHeaderHTML = nav => `
-<li class="header__item">
-                        <a href="" class="header__link" data-el="true" data-btn="header" data-id="${nav.id}">${nav.name}</a></li>`
+<span class="nav-line"></span><li class="header__item"><a href="" class="header__link" data-el="true" data-btn="header" data-id="${nav.id}"></i>${nav.name}</a></li>`
 const toNavHTML = nav => `
  <li class="thing__item">
                         <a href="#" class="things__link-nav" data-btn="btnNav" data-id="${nav.id}">${nav.name}</a>${nav.img}</li>`
@@ -734,7 +734,7 @@ document.addEventListener('click',event => {
         navModal.open()
 
 
-    } else if (btnType === 'header'){
+    } else if (btnType === 'header' && header.id < 6){
        if (burgerNav.classList.contains('active')){
            burgerNav.classList.remove('active')
            setTimeout(() => {
@@ -742,11 +742,12 @@ document.addEventListener('click',event => {
                open = false
            },50)
        }
-        const main = document.querySelector('.main')
+
+       const main = document.querySelector('.main')
         main.style.opacity = '0'
         main.style.transition = 'all .3s ease-in'
         setTimeout(() => {
-            main.innerHTML = header.html
+                main.innerHTML = header.html
         }, 700)
         setTimeout(() => {
             main.style.opacity = '1'
@@ -770,6 +771,9 @@ document.addEventListener('click',event => {
         setTimeout(() => {
             open = false
         }, 5)
+    } else if ((btnType === 'header') && header.id >= 6){
+        event.preventDefault()
+        burgerClose()
     }
 })
 
